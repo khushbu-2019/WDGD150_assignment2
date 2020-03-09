@@ -1,0 +1,20 @@
+html {
+    font-family: 'Lato', sans-serif;
+     background-color: skyblue;
+}
+
+
+h1 {
+    text-align: center;
+    color: purple;
+    text-shadow: 2px 2px grey;
+    font-size: 140px;
+}
+
+h4 {
+    background-color:black;
+    font-size: 60pt;
+    font-family:'Permanent Marker' , cursive;
+    text-align: center;
+    color:#F3CEA1;
+}

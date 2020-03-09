@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignemnt 2 JavaScript</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    </head>
+<body onload="draw();">
+    <div class="container">
+
+        <script src="js/external.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:900&display=swap" rel="stylesheet">
+       
+        <div class="main">
+        <h1 id="title">CREATIVE CODING</h1>
+
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+        </div>
+<script>
+//Drawing dots in a canvas
+
+let dots = [];
+
+let canvas = ( /** @type {HTMLCanvasElement} */ document.getElementById("canvas"));
+let context = canvas.getContext('2d');
+
+let mouseX = -10;
+let mouseY = -10;
+
+canvas.onclick = function (event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    let box = (event.target).getBoundingClientRect();
+    mouseX -= box.left;
+    mouseY -= box.top;
+};
+
+canvas.onmouseleave = function () {
+    mouseX = -10;
+    mouseY = -10;
+};
+
+var drawCirc = function (hover) {
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    if ((mouseX > 0) && (mouseY > 0)) {
+        dots.push({
+            "x": mouseX,
+            "y": mouseY
+        });
+    }
+    //draw dots
+
+
+    dots.forEach(function (d) {
+        context.fillStyle = "purple";
+        context.beginPath();
+        context.arc(d.x - 3, d.y - 3, 10, 0, 2 * Math.PI);
+        context.fill();
+    });
+    window.requestAnimationFrame(drawCirc);
+}
+    drawCirc();
+
+</script>
+</div>
+</body>
+</html>
